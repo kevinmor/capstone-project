@@ -1,7 +1,7 @@
 import logo from '../img/Logo.svg'
 import { Link } from 'react-router-dom'
 
-function Footer() {
+const Footer = () => {
     const footerContainer = {
         display: "flex",
         justifyContent: "center",
@@ -16,7 +16,7 @@ function Footer() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/">About</Link></li>
                     <li><Link to="/">Menu</Link></li>
-                    <li><Link to="/booking">Reservations</Link></li>
+                    <li><Link to="/booking-page">Reservations</Link></li>
                     <li><Link to="/">Order Online</Link></li>
                     <li><Link to="/">Login</Link></li>
                 </ul>
