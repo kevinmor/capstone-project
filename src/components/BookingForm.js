@@ -18,10 +18,9 @@ const BookingForm = ({availableTimes, dispatch, submit}) => {
             guests: guests,
             occasion: occasion
         }
-        console.log(formData)
-        console.log(submit(formData))
     }
 
+    const validForm = () => date && time && guests >= 1 && occasion
     const formStyle = {
         display: "grid",
         maxWidth: "200px",
@@ -31,11 +30,7 @@ const BookingForm = ({availableTimes, dispatch, submit}) => {
     return(
         <>
             <h1>Book Now</h1>
-            <form onSubmit={handleSubmit} style={formStyle}>
-                <label htmlFor="firstname">First name:</label>
-                <input type="text" name="firstname" id="firstname" />
-
-                
+            <form onSubmit={handleSubmit} style={formStyle}>                
                 <label htmlFor="res-date">Desired Reservation Date:</label>
                 <input type="date" id="res-date" name="res-date"
                     value={date}
@@ -43,35 +38,38 @@ const BookingForm = ({availableTimes, dispatch, submit}) => {
                         dispatch({date: e.target.value})
                         setDate(e.target.value)
                     }}
+                    required
                 />
 
-                
                 <label htmlFor="res-time">Desired Time:</label>
                 <select id="res-time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
+                    required
                 >
-                <option>Select a Time</option>
-                {availableTimes.map( i => <option key={i}>{i}</option>)}
+                <option value="">Select a Time</option>
+                {availableTimes.map( i => <option key={i} value={i}>{i}</option>)}
                 </select>
 
                 <label htmlFor="guests">Number of guests:</label>
                 <input type="number" placeholder="1" min="1" max="10" id="guests" 
                     value={guests}
                     onChange={(e) => setGuests(e.target.value)}
+                    required
                 />
                 
                 <label htmlFor="occasion">Occasion:</label>
                 <select id="occasion"
                     value={occasion}
                     onChange={(e) => setOccasion(e.target.value)}
+                    required
                 >
-                    <option>Select an Occasion</option>
+                    <option value="">Select an Occasion</option>
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
                 
-                <input type="submit" value="Make your reservation" />
+                <input type="submit" value="Make your reservation" disabled={!validForm()} />
             </form>
         </>
     )
