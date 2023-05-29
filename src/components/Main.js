@@ -1,24 +1,32 @@
-import {Routes, Route} from'react-router-dom'
+import {Routes, Route, useNavigate} from'react-router-dom'
 import { useState, useReducer, useEffect } from 'react'
 import Homepage from './Homepage'
 import BookingPage from './BookingPage'
+import ConfirmedBooking from './ConfirmedBooking'
+import { fetchAPI, submitAPI } from '../api/api'
+
+
 
 function Main() {
-    //the reducer function. will need updating. for now return all the same times
+    
+    const initializeTimes = () => fetchAPI(new Date())
     const updateTimes = (state, action) =>{
-        if(action.date != null) return state
+        state = fetchAPI(new Date(action.date))
+        return state
     }
-
-//this will be initialized using API data in the end. CONVERT TO FUNCTION
-    const initializeTimes = () => ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    // const [availableTimes, setAvailableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
     const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
+    const navigate = useNavigate()
+    const submitForm = (formdata) => {
+        navigate('confirmed-booking')
+        return submitAPI(formdata)
+    }
 
     return (
         <main>
             <Routes>
                 <Route path="/" element={<Homepage />} />
-                <Route path="/booking-page" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch}/>} />                
+                <Route path="/booking-page" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} submit={submitForm}/>} />                
+                <Route path="confirmed-booking" element={<ConfirmedBooking />} />
             </Routes>
         </main>
     )

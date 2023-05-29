@@ -1,32 +1,20 @@
 import { render, screen } from "@testing-library/react";
-import BookingForm from "./components/BookingForm";
+import { fetchAPI, sub } from "./api/api";
 
+//!!! Update the initial tests to use mock functions!
 
-test('Renders the BookingForm heading', () => {
-    //need to add a prop to Booking form so that jest can simulate time slots being rendered, otherwise an error gets thrown
-    const times = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    render(<BookingForm availableTimes={times}/>);
-
-    const headingElement = screen.getByText("Book Now");
-    expect(headingElement).toBeInTheDocument();
+test("Array returned by initalizedTimes should be > 0", () => {
+    const initializeTimes = () => fetchAPI(new Date())
+    expect(initializeTimes().length).toBeGreaterThan(0)
 })
 
-test('Initial initiateTimes function should return array with times', () => {
-    const initalizedExpected = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    const initializeTimes = () => ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    expect(initializeTimes()).toMatchSnapshot(initalizedExpected)
-})
-
-test('Inital Update time function should return the same value provided to state', () => {
-    const initalizedExpected = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    const updateTimes = (state, action) =>{
+test("Test to see that times are produced when date is entered into updateTimes", () =>{
+    const updateTimes = (state, date) =>{
+        state = fetchAPI(new Date(date))
         return state
     }
-    expect(updateTimes(initalizedExpected)).toMatchSnapshot(initalizedExpected)
-})
 
-test('Function should return 3', () => {
-    const add = (a,b) => a + b
-    const a = 1
-    const b = 2
+    const testState = fetchAPI(new Date("05-30-2023"))
+
+    expect(updateTimes(testState, "06-01-2023").length).toBeGreaterThan(0)
 })
