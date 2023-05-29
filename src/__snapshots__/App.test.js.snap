@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inital Update time function should return the same value provided to state 1`] = `
+Array [
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+  "21:00",
+  "22:00",
+]
+`;
+
+exports[`Initial initiateTimes function should return array with times 1`] = `
+Array [
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+  "21:00",
+  "22:00",
+]
+`;

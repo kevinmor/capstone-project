@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 
-const BookingForm = ({availableTimes}) => {
+
+const BookingForm = ({availableTimes, dispatch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -17,51 +18,52 @@ const BookingForm = ({availableTimes}) => {
     const [guests, setGuests] = useState("")
     const [occasion, setOccasion] = useState("")
 
-    const showTimes = availableTimes.map( i => <option key={i}>{i}</option>)
-
-    useEffect(() => {
-        console.log(availableTimes)
-    }, [])
-
+    // const showTimes = availableTimes.map( i => <option key={i}>{i}</option>)
 
     return(
-        <form onSubmit={handleSubmit} style={formStyle}>
-            <label htmlFor="firstname">First name:</label>
-            <input type="text" name="firstname" id="firstname" />
+        <>
+            <h1>Book Now</h1>
+            <form onSubmit={handleSubmit} style={formStyle}>
+                <label htmlFor="firstname">First name:</label>
+                <input type="text" name="firstname" id="firstname" />
 
-            
-            <label htmlFor="res-date">Desired Reservation Date:</label>
-            <input type="date" id="res-date" name="res-date" 
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-            />
+                
+                <label htmlFor="res-date">Desired Reservation Date:</label>
+                <input type="date" id="res-date" name="res-date" 
+                    value={date}
+                    onChange={(e) => {
+                        dispatch({date: e.target.value})
+                        setDate(e.target.value)
+                    }}
+                />
 
-            
-            <label htmlFor="res-time">Desired Time:</label>
-            <select id="res-time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-            >
-            {showTimes}
-            </select>
+                
+                <label htmlFor="res-time">Desired Time:</label>
+                <select id="res-time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                >
+                {availableTimes.map( i => <option key={i}>{i}</option>)}
+                </select>
 
-            <label htmlFor="guests">Number of guests:</label>
-            <input type="number" placeholder="1" min="1" max="10" id="guests" 
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-            />
-            
-            <label htmlFor="occasion">Occasion:</label>
-            <select id="occasion"
-                value={occasion}
-                onChange={(e) => setOccasion(e.target.value)}
-            >
-                <option>Birthday</option>
-                <option>Anniversary</option>
-            </select>
-            
-            <input type="submit" value="Make your reservation" />
-        </form>
+                <label htmlFor="guests">Number of guests:</label>
+                <input type="number" placeholder="1" min="1" max="10" id="guests" 
+                    value={guests}
+                    onChange={(e) => setGuests(e.target.value)}
+                />
+                
+                <label htmlFor="occasion">Occasion:</label>
+                <select id="occasion"
+                    value={occasion}
+                    onChange={(e) => setOccasion(e.target.value)}
+                >
+                    <option>Birthday</option>
+                    <option>Anniversary</option>
+                </select>
+                
+                <input type="submit" value="Make your reservation" />
+            </form>
+        </>
     )
 }
 
