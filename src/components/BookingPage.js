@@ -1,12 +1,14 @@
 import BookingForm from "./BookingForm"
-import { useState, useReducer, useEffect } from 'react'
 
 const BookingPage = ({availableTimes, dispatch, submit}) => {
+    const headerStyle = {
+        gridColumn: "3 / span 8"
+    }
     return(
-        <>
-            <h1>Book A Table</h1>
+        <section className="grid">
+            <h1 style={headerStyle} className="section-title"> Book A Table</h1>
             <BookingForm availableTimes={availableTimes} dispatch={dispatch} submit={submit}/>
-        </>
+        </section>
     )
 }
 

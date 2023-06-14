@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
 
 const Nav= () => {
-    const navContainer = {
+    const menuItems = {
+        listStyleType: "none",
         display: "flex",
-        gap: "1em",
-        listStyleType: "none"
+        justifyContent: "space-between",
+        color: "red",
+        alignItems: "center"
     }
-
     return (
-        <nav>
-            <ul style={navContainer}>
+        <nav className="nav-container">
+            <ul style={menuItems} className="greenText"> 
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/">About</Link></li>
                 <li><Link to="/">Menu</Link></li>

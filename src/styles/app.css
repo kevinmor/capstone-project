@@ -1,9 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text&display=swap');
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex: 1;
+}
+
 .greenBg {
     background-color: #495e57;
 }
 
 .yellowBg {
     background-color: #F4CE14;
+}
+
+.greyBg {
+    background-color: #EDEFEE;
 }
 
 .orangeText {
@@ -13,11 +41,115 @@
 .beigeText {
     color: #FBDABB;
 }
-
-.greyBg {
-    background-color: #EDEFEE;
-}
-
 .blackText {
     color: #333333;
+}
+
+.yellowText {
+    color: #F4CE14;
+}
+
+.greyText {
+    color: #EDEFEE;
+}
+
+.cardHeadingText {
+    font-size: 1.065rem;
+}
+
+
+.buttonFont{
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.action-text {
+    font-family: 'Markazi Text', serif;
+    font-size: 64pt;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.subtitle-text {
+    font-family: 'Markazi Text', serif;
+    font-size: 48pt;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+
+}
+
+.lead-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 18pt;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 20pt;
+    font-weight: 800; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.specials {
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    font-weight: 800;
+}
+
+.card-title {
+    font-family: 'Karla', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+}
+
+.p-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+ul a {
+    color:#495e57;
+    text-decoration: none;
+    font-family: 'Karla', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+}
+
+.link-container {
+    padding: 2rem;
+    margin: 0;
+}
+
+.logo-style {
+    grid-column: 3 / span 1;
+    align-self: center;
+    width: 147.5;
+    height: 40;
+}
+
+.nav-container {
+    grid-column: 6 / span 5;
+}
+.footer-container {
+    grid-column: 5 / span 6;
+    /* justify-self: stretch; */
+    display: flex;
+    justify-content: space-between;
+}
+
+input, select {
+    border-style: none;
 }

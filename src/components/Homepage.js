@@ -7,14 +7,10 @@ import Chicago from './Chicago'
 
 
 const Homepage = () => {
-    // const homepageContainer = {
-    //     display: "flex",
-    //     justifyContent: "center"
-    // }
     return(
         <>
             <CallToAction />
-            {/* <Specials /> */}
+            <Specials />
             <CustomersSay />
             <Chicago />
         </>

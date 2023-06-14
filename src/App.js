@@ -6,9 +6,9 @@ import Footer from "./components/Footer"
 
 function App() {
   const container = {
-    padding: "20px",
-    display: "grid",
-    gridTemplateRows: "50px auto auto",
+    // padding: "20px",
+    // display: "grid",
+    // gridTemplateRows: "50px auto auto",
     // gridAutoColumns: "1fr",
     // gridAutoFlow: "column",
     minHeight: "100vh"
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div style={container}>
-      <Header />
+      <Header/>
       <Main />
       <Footer />
     </div>
