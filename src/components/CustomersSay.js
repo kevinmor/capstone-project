@@ -85,7 +85,6 @@ const CustomersSay = ({mobile}) => {
             <article style={testimonialCard} className="greyBg" key={review.testimonial_id}>
                 <div className="row">
                     <img style={testimonialImage} src={review.testimonial_img} alt="reviewer"/>
-                    {console.log(review.testimonial_img)}
                     <div style={column2}>
                         <h3 className="card-title blackText">{review.testimonial_name}</h3>
                         <div style={starRatings}>
