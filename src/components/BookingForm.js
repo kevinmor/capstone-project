@@ -22,7 +22,7 @@ const BookingForm = ({availableTimes, dispatch, submit, mobile}) => {
     }
 
     const validForm = () => date && time && (guests >= 1 && guests <= 10)&& occasion
-    
+
     const container = {
         gridColumn: "3 / span 8",
         borderRadius: "16px",
@@ -163,7 +163,7 @@ const BookingForm = ({availableTimes, dispatch, submit, mobile}) => {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input style={btnStyle} className="greyText lead-text" type="submit" 
+                <input style={btnStyle} className="greyText lead-text" type="submit" role="button" 
                     value="Submit" disabled={!validForm()} 
                     onMouseEnter={() => setShadow("rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px")}
                     onMouseLeave={() => setShadow("none")}
