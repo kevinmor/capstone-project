@@ -1,31 +1,34 @@
 import about1 from '../img/about1.jpg'
 import about2 from '../img/about2.jpg'
 
-const Chicago = () => {
+const Chicago = ({mobile}) => {
 
     const aboutText = {
-        gridColumn: "3 / span 3",
+        gridColumn: mobile ? "3 / span 3" : "3 / span 8",
+        textAlign: !mobile && "center"
     }
     const aboutImages = {
-        gridColumn: "span 5",
+        gridColumn: mobile ? "span 5" : "span 8",
         position: "relative"
     }
 
     const aboutHeading = {
         fontSize: "3.3331rem", 
         marginTop:0,
-        marginBottom: "1rem"
+        marginBottom: "1rem",
     }
 
     const aboutImg1 = {
-        gridColumn: "1 / span 8",
+        display: !mobile && "none",
+        gridColumn: mobile && "1 / span 8",
         gridRow: "1",
         paddingTop: "20%",
         width: "100%",
         zIndex: "1"
     }
     const aboutImg2 = {
-        gridColumn: "4 / -1",
+        display: !mobile && "none",
+        gridColumn: mobile && "4 / -1",
         gridRow: "1",
         width: "100%"
     }

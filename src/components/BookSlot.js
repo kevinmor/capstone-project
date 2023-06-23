@@ -1,6 +1,0 @@
-const BookSlot = () => {
-    return (
-        <>
-        </>
-    )
-}

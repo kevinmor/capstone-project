@@ -1,3 +1,4 @@
+import Button from './Button'
 import salad from '../img/salad.jpg'
 import bruschetta from '../img/bruschetta.jpg'
 import lemonDessert from '../img/dessert.jpg'
@@ -27,27 +28,16 @@ const specialsCards = [
 ]
 
 
-const Specials = () => {
-    const btn = {
-        padding: "1rem",
-        borderRadius: "16px",
-        borderStyle: "none"
-    }
-    const specialsHeading = {
-        display: "flex",
-        gridColumn: "3 / span 8",
-        justifyContent: "space-between",
-        alignItems: "center",
-    }
-
+const Specials = ({mobile}) => {
     const cardsContainer = {
-        gridColumn: "3 / span 8"
+        gridColumn: mobile && "3 / span 8"
     }
 
     const cardStyle = {
         borderRadius: "16px",
         gridColumn: "span 4",
-        paddingBottom: "2rem"
+        paddingBottom: "2rem",
+        marginBottom: !mobile && "2rem"
     }
 
     const cardImg = {
@@ -85,13 +75,19 @@ const Specials = () => {
         })
 
     return (
-        <section className="grid section-padding">
-            <div style={specialsHeading}>
+        <section className={mobile ? "grid section-padding" : "mobile-container"}>
+            <div className={mobile ? "specials-heading" : "mobile-specials"}>
                 <h1 className="specials">This Weeks Specials!</h1>
                 {/* Update button for accessibility */}
-                <button style={btn} className="yellowBg blackText buttonFont">Online Menu</button>
+                {/* <button style={btn} className="blackText buttonFont"
+                    onMouseEnter={() => setColor('#EE9972')}
+                    onMouseLeave={() => setColor('#F4CE14')}
+                >
+                    Online Menu
+                </button> */}
+                <Button btnText='Online Menu'/>
             </div>
-            <div style={cardsContainer} className="grid">
+            <div style={cardsContainer} className={mobile ? "grid" : "mobile-specials-cards"}>
                 {displayCards}
             </div>
         </section>

@@ -1,13 +1,13 @@
 import BookingForm from "./BookingForm"
 
-const BookingPage = ({availableTimes, dispatch, submit}) => {
+const BookingPage = ({availableTimes, dispatch, submit, mobile}) => {
     const headerStyle = {
         gridColumn: "3 / span 8"
     }
     return(
-        <section className="grid">
+        <section className={mobile? "grid" : "mobile-container"}>
             <h1 style={headerStyle} className="section-title"> Book A Table</h1>
-            <BookingForm availableTimes={availableTimes} dispatch={dispatch} submit={submit}/>
+            <BookingForm mobile={mobile} availableTimes={availableTimes} dispatch={dispatch} submit={submit}/>
         </section>
     )
 }

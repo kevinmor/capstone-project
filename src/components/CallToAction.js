@@ -1,14 +1,26 @@
+import { useNavigate } from 'react-router-dom'
+import Button from './Button'
 import chef from '../img/rcb.jpg'
 
-const CallToAction= () => {
+const CallToAction= ({mobile}) => {
 
-    const sectionStyle = {
-        padding: "2rem 0 2rem 0",
-        alignItems: "center"
-    }
+
+    // const [mobile, setMobile] = useState(
+    //     window.matchMedia("(min-width: 768px)").matches
+    // )
+    // useEffect(() => {
+    //     window
+    //     .matchMedia("(min-width: 768px)")
+    //     .addEventListener('change', e => setMobile(e.matches))
+    // }, [])
+
+
+    const navigate = useNavigate()
+
 
     const callToActionText = {
-        gridColumn: "3 / span 4",
+        gridColumn: mobile ? "3 / span 4" : "3 / span 5",
+        justifySelf: !mobile && "center",
         marginTop: "0",
         paddingTop: "0"
     }
@@ -19,25 +31,21 @@ const CallToAction= () => {
         maxWidth:"100%"
     }
 
-    const btn = {
-        marginTop: "1rem",
-        padding: "1rem",
-        borderRadius: "16px",
-        borderStyle: "none",
-    }
+
+    const testHand = () => navigate('/booking-page')
 
     return (
-        <section style={sectionStyle} className="grid greenBg" >
+        <section className={mobile ? "grid sectionStyle greenBg" : "mobile-container callText greenBg"} >
             <div style={callToActionText}>
                 <h1 className="action-text yellowText">Little Lemon</h1>
                 <h2 className="subtitle-text greyText">Chicago</h2>
-                <p className="lead-text greyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus tortor id placerat luctus. Nullam tincidunt. </p>
-                {/* update button for accessibility and to link properly */}
-                <button style={btn} className="yellowBg blackText buttonFont">
-                    Reserve a table now
-                </button>
+                <p className="lead-text greyText" style={{marginTop: "2rem", marginBottom: "2rem"}}>
+                    We are a family owned restaurant, with a focus on traditional recipes but with a modern twist!
+                </p>
+                <Button btnText='Reserve a table now' evtName='onClick' evtHandler={testHand}/>
+
             </div>
-            <img src={chef} alt="" style={chefImg}/>
+            {mobile && <img src={chef} alt="" style={chefImg}/> }
         </section>
     )
 }

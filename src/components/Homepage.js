@@ -6,13 +6,13 @@ import Chicago from './Chicago'
 
 
 
-const Homepage = () => {
+const Homepage = ({mobile}) => {
     return(
         <>
-            <CallToAction />
-            <Specials />
-            <CustomersSay />
-            <Chicago />
+            <CallToAction mobile={mobile} />
+            <Specials mobile={mobile} />
+            <CustomersSay mobile={mobile} />
+            <Chicago mobile={mobile} />
         </>
     )
 }

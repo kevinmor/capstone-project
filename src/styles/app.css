@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text&display=swap');
-
 .grid {
     display: grid;
     gap: 1.5rem;
@@ -38,9 +37,6 @@
     color: #EE9972;
 }
 
-.beigeText {
-    color: #FBDABB;
-}
 .blackText {
     color: #333333;
 }
@@ -87,6 +83,7 @@
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 0;
+    line-height: 1.5;
 }
 
 .section-title {
@@ -128,6 +125,7 @@ ul a {
     font-weight: 800;
 }
 
+
 .link-container {
     padding: 2rem;
     margin: 0;
@@ -145,11 +143,66 @@ ul a {
 }
 .footer-container {
     grid-column: 5 / span 6;
-    /* justify-self: stretch; */
     display: flex;
     justify-content: space-between;
 }
 
-input, select {
+.sectionStyle {
+    padding: 2rem 0 2rem 0;
+    align-items: center;
+}
+
+
+input {
     border-style: none;
+}
+select {
+    border-style: none;
+    font-size: 1rem;
+}
+
+.mobile-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.callText {
+    text-align: center;
+}
+
+.specials-heading  {
+    display: flex;
+    grid-column: 3 / span 8;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-specials {
+    text-align: center;
+}
+
+.mobile-specials-cards {
+    margin-top: 2rem;
+}
+
+.mobile-nav {
+    width: 100%;
+}
+
+.mobile-nav-link {
+    margin-bottom: 0.75rem;
+}
+.mobile-menu-items {
+    list-style-type: none;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.testimonials {
+    width: 100%;
+}
+
+li {
+    padding: 0.5rem;
 }

@@ -1,26 +1,22 @@
 import logo from '../img/Logo.svg'
-import { Link } from 'react-router-dom'
+import Links from './Links'
 
-const Footer = () => {
+const Footer = ({mobile}) => {
     const footerItems = {
         listStyleType: "none",
         margin: 0,
         padding: "0",
+        fontFamily: "'Karla', sans-serif",
+        fontSize: "14pt",
+        fontWeight: "400"
     }
     return (
-        <footer className="grid link-container">
+        <footer className={mobile ? "grid link-container" : "mobile-container"}>
             <img src={logo} alt="logo" className="logo-style"/>
             <div className="footer-container">
                 <div>
                     <h4>Doormat Navigation</h4>
-                    <ul style={footerItems}>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">About</Link></li>
-                        <li><Link to="/">Menu</Link></li>
-                        <li><Link to="/booking-page">Reservations</Link></li>
-                        <li><Link to="/">Order Online</Link></li>
-                        <li><Link to="/">Login</Link></li>
-                    </ul>
+                    <Links linkStyles={footerItems}/>
                 </div>
                 <div>
                     <h4>Contact</h4>
@@ -33,12 +29,13 @@ const Footer = () => {
                 <div>
                     <h4>Social Media Links</h4>
                     <ul style={footerItems}>
-                        <li>Link 1</li>
-                        <li>Link 2</li>
-                        <li>Link 3</li>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
                     </ul>
                 </div>
             </div>
+            <span style={{textAlign: "center", color: "#495e57", gridRow: "2", gridColumn: "span 12"}}>© 2023 Little Lemon</span>
         </footer>
     )
 }

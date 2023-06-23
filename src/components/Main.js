@@ -7,7 +7,7 @@ import { fetchAPI, submitAPI } from '../api/api'
 
 
 
-function Main() {    
+function Main({mobile}) {  
     const initializeTimes = () => fetchAPI(new Date())
     const updateTimes = (state, action) =>{
         state = fetchAPI(new Date(action.date))
@@ -24,8 +24,8 @@ function Main() {
     return (
         <main>
             <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/booking-page" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} submit={submitForm}/>} />                
+                <Route path="/" element={<Homepage mobile={mobile}/>} />
+                <Route path="/booking-page" element={<BookingPage mobile={mobile} availableTimes={availableTimes} dispatch={dispatch} submit={submitForm}/>} />                
                 <Route path="confirmed-booking" element={<ConfirmedBooking formData={submittedData} />} />
             </Routes>
         </main>

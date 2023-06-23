@@ -1,11 +1,11 @@
 import logo from '../img/Logo.svg'
 import Nav from './Nav'
 
-function Header() {
+function Header({mobile}) {
     return (
-        <header className="grid link-container">
+        <header className={mobile ? "grid link-container" : "mobile-container"}>
             <img src={logo} alt="logo" className="logo-style" />
-            <Nav />
+            <Nav mobile={mobile}/>
         </header>
     )
 }
